@@ -31,7 +31,7 @@ public class Chapter5_21 {
         int right=0;
         int match=chas2.length;
         int minLen=Integer.MAX_VALUE;
-        while (right!=chas1.length)
+/*        while (right!=chas1.length)
         {
             map[chas1[right]]--;
             if (map[chas1[right]]>=0)
@@ -50,8 +50,26 @@ public class Chapter5_21 {
 
             }
             right++;
+        }*/
+        while(right!=chas1.length)
+        {
+            map[chas1[right]]--;
+            if (map[chas1[right]]>=0)
+            {
+                match--;
+            }
+            if ((match==0))
+            {
+                while(map[chas1[left]]<0)
+                {
+                    map[chas1[left++]]++;
+                }
+                minLen=Math.min(minLen,right-left+1);
+                match++;
+                map[chas1[left++]]++;
+            }
+            right++;
         }
-
         return minLen==Integer.MAX_VALUE?0:minLen;
     }
 
