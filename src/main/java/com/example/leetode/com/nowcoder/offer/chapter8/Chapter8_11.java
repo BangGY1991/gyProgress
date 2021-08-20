@@ -64,6 +64,7 @@ public class Chapter8_11 {
         {
                 return 0;
         }
+        /*未排序数组中累加和小于或等于给定值的最长子数组长度*/
         int[] minSums=new int[arr.length];
         int[] minSumEnds=new int[arr.length];
         for (int i = arr.length-2; i >=0 ; i--) {
