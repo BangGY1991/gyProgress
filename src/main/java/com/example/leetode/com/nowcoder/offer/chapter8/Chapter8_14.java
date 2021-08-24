@@ -2,25 +2,36 @@ package com.example.leetode.com.nowcoder.offer.chapter8;
 
 /**
  * @program: gyProgress
- * @description: 子数组的最大累加和问题
+ * @description: 奇数下标都是奇数或者偶数下标都是偶数
  * @author: GuoYu
- * @create: 2021-08-24 11:35
+ * @create: 2021-08-24 11:51
  **/
 public class Chapter8_14 {
-    public int maxSum(int[] arr)
+    public void modify(int [] arr)
     {
-        if (arr == null||arr.length==0) {
-            return 0;
+        if (arr == null||arr.length<2) {
+            return;
         }
-        int max=Integer.MIN_VALUE;
-        int cur=0;
-        for (int i = 0; i !=arr.length; i++) {
-            cur+=arr[i];
-            max=Math.max(max,cur);
-            cur=cur<0?0:cur;
+        int even=0;
+        int odd=1;
+        int end=arr.length-1;
+        while (even<=end&&odd<=end)
+        {
+            if ((arr[end]&1) == 0) {
+                swap(arr,end,even);
+                even+=2;
+            }else
+            {
+                swap(arr,end,odd);
+                odd+=2;
+            }
+
         }
-        return max;
     }
 
-
+    private void swap(int[] arr, int index1, int index2) {
+        int tmp=arr[index1];
+        arr[index1]=arr[index2];
+        arr[index2]=tmp;
+    }
 }
