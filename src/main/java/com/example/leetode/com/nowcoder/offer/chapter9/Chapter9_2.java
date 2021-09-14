@@ -5,6 +5,8 @@ package com.example.leetode.com.nowcoder.offer.chapter9;
  * @description: 有关阶乘的两个问题
  * @author: GuoYu
  * @create: 2021-09-14 18:38
+ *
+ *
  **/
 public class Chapter9_2 {
     public int zeroNum1(int num)
