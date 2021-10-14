@@ -1,6 +1,6 @@
 package com.example.JianZhiOffer;
 
-import java.util.ArrayList;
+import java.util.*;
 
 /*
 从上到下按层打印二叉树，同一层结点从左至右输出。
@@ -16,6 +16,23 @@ public class JZ22 {
 
         }
 
+    }
+
+    public ArrayList<Integer> PrintFromTopToBottom(TreeNode root) {
+        ArrayList<Integer> list=new ArrayList<Integer>();
+        if (root == null) {
+            return list;
+        }
+        Deque<TreeNode> deque =new LinkedList<TreeNode>();
+        deque.add(root);
+        while (!deque.isEmpty())
+        {
+            TreeNode t=deque.pop();
+            list.add(t.val);
+            if(t.left!=null) deque.add(t.left);//LinkedList 的add 加到队尾
+            if(t.right!=null) deque.add(t.right);
+        }
+        return list;
     }
     ArrayList<ArrayList<Integer>> Print(TreeNode pRoot)
     {
