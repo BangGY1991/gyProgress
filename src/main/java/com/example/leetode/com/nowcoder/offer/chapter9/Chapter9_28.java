@@ -30,7 +30,7 @@ public class Chapter9_28 {
                 start2=mid2+offset;
             }else if (arr1[mid1]<arr2[mid2])
             {
-                start2=mid1+offset;
+                start1=mid1+offset;
                 end2=mid2;
             }else{
                 return arr1[mid1];
