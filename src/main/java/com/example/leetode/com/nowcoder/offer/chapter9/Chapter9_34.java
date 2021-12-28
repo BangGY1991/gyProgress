@@ -74,7 +74,7 @@ public class Chapter9_34 {
                 curArr[j]=min+1;
             }
         }
-        return 0;
+        return curArr[curArr.length-1];
     }
      private int solution4(int nLevel, int kChess) {
         if (nLevel < 1 || kChess < 1) {
