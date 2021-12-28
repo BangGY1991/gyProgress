@@ -110,4 +110,36 @@ public class Chapter9_34 {
         }
         return dp[nLevel][kChess];
     }
+    
+     /**
+     * 代码中的类名、方法名、参数名已经指定，请勿修改，直接返回方法规定的值即可
+     * 返回最差情况下扔棋子的最小次数
+     * @param n int整型 楼层数
+     * @param k int整型 棋子数
+     * @return int整型
+     */
+    public int solve (int n, int k) {
+        // write code here
+        if(n < 1 || k < 1) return 0;
+        //另外还有一个特别重要的优化，我们知道N层楼完全用二分的方式扔logN+1次就直接可以确定哪层楼是会碎的最低层楼
+
+        int times = (int)(Math.log(n)/Math.log(2)) + 1;
+        if(k >= times) return times;
+
+        int[] dp = new int[k];
+        int res = 0;
+        //构建几个棋子可以扔多少次就能最大判断的楼数Map表，
+        //map[i][j] == map[i-1][j] + map[i-1][j-1] + 1
+        while(true){
+            res ++;
+            int pre = 0;
+            for(int i=0; i<k; i++){
+                int temp = dp[i];
+                dp[i] = dp[i] + pre + 1;
+                pre = temp;
+                if(dp[i] >= n) return res;
+            }
+        }
+    }
+    
 }
