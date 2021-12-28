@@ -76,4 +76,38 @@ public class Chapter9_34 {
         }
         return 0;
     }
+     private int solution4(int nLevel, int kChess) {
+        if (nLevel < 1 || kChess < 1) {
+            return 0;
+        }
+        if(kChess==1){
+            return nLevel;
+        }
+        int[][] dp=new int[nLevel+1][kChess+1];
+        for (int i = 1; i !=dp.length ; i++) {
+            dp[i][1]=i;
+        }
+        int[] cands=new int[kChess+1];
+        for (int i = 1; i !=dp[0].length ; i++) {
+            dp[1][i]=1;
+            cands[i]=1;
+        }
+        for (int i = 2; i < nLevel+1; i++) {
+            for (int j = kChess; j >1 ; j--) {
+                int min=Integer.MAX_VALUE;
+                int minEnum=cands[j];
+                int maxEnum=j==kChess?i/2+1:cands[j+1];
+                for (int k = minEnum; k < maxEnum+1; k++) {
+                    int cur=Math.max(dp[k-1][j-1],dp[i-k][j]);
+                    if(cur<=min){
+                      min=cur;
+                      cands[j]=k;
+                    }
+                }
+                dp[i][j]=min+1;
+            }
+
+        }
+        return dp[nLevel][kChess];
+    }
 }
