@@ -100,7 +100,6 @@ public class Chapter2_9 {
 	    	cur.next=next;
 	    	curCopy.next=next!=null?next.next:null;
 	    	cur=next;
-	    	cur=next;
 			
 		}
 	    return res;
