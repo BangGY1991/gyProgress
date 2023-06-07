@@ -1,7 +1,5 @@
 package com.example.leetode.com.nowcoder.offer.chapter3;
 
-import com.sun.scenario.effect.Effect;
-
 public class Chapter3_2_1 {//延伸路径，左节点的左节点，右节点的右节点
    public void printEdge1(Node head)
    {

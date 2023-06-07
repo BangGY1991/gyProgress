@@ -27,7 +27,7 @@ public class Chapter3_6 {
 		maxLen = preOrder(head.left, sum, curSum, level + 1, maxLen, sumMap);
 		maxLen = preOrder(head.right, sum, curSum, level + 1, maxLen, sumMap);
 		if (level == sumMap.get(curSum)) {
-			sumMap.remove(curSum);
+			sumMap.remove(curSum);//走这条路径，才放进summap,用完后需要删除啊，不能影响其他分支
 		}
 		return maxLen;
 	}

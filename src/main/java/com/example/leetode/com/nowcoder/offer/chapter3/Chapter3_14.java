@@ -22,7 +22,7 @@ public class Chapter3_14 {
 				more=more==end?i:more;
 			}
 			if (less==-1||more==end) {
-				return isPost(arr, start, end-1);
+				return isPost(arr, start, end-1);//头节点不存在左子树的情况
 			}
 			if (less!=more-1) {
 				return false;
