@@ -1,8 +1,6 @@
-package com.example.leetode.gupaohomework.leetcode40;
+package com.example.leetode.hotest100;
 
-import com.sun.corba.se.impl.activation.NameServiceStartThread;
-
-public class FirstMissingPositive41 {
+public class FirstMissingPositive041 {
 
     public int firstMissingPositive2(int[] nums) {
         int n = nums.length;
