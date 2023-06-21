@@ -1,7 +1,17 @@
 package com.example.leetode.com.sort;
 
+import javax.swing.event.MenuDragMouseListener;
 import java.util.Arrays;
-
+//
+//时间复杂度：
+//
+//		最好情况 O(N * logN)
+//		最坏情况 O(N^2) （数据本来就有序）
+//		空间复杂度：
+//
+//		最好情况 O( logN)
+//		最坏情况 O(N)（数据本来就有序）-- 化为一颗单分枝树
+//      不稳定算法
 public class QuickSort {
 	private static int partition(int[] arr, int low, int high) {
 		// 指定左指针i和右指针j
@@ -92,6 +102,7 @@ public class QuickSort {
 		int pivot = arr[start];
 		int i = start;
 		int j = end;
+		//所有元素比基准值小的摆放在基准前面，所有元素比基准值大的摆在基准的后面（相同的数可以到任一边）。在这个分区退出之后，该基准就处于数列的中间位置。这个称为分区（partition）操作
 		while (i < j) {
 			while ((i < j) && (arr[j] > pivot)) {
 				j--;
@@ -107,143 +118,71 @@ public class QuickSort {
 				arr[j] = temp;
 			}
 		}
+		//递归地（recursive）把小于基准值元素的子数列和大于基准值元素的子数列排序
 		if (i - 1 > start)
-			arr = qsort(arr, start, i - 1);
+			arr = qsort(arr, start, i - 1);//比基准小的元素，
 		if (j + 1 < end)
-			arr = qsort(arr, j + 1, end);
+			arr = qsort(arr, j + 1, end);//比基准大的元素
 		return (arr);
 	}
 
 	public static int[] qsort1(int arr[], int start, int end) {
-		int pivot = arr[start];
-		int i = start;
-		int j = end;
-		while (i < j) {
+		int pivot=arr[start];
+		int i=start;
+		int j=end;
+		while(i<j){
+            while((i<j)&&arr[i]<pivot)
+			{
+				i++;
+			}
+			while((i<j) && (arr[j]>pivot)){
+				j--;
+			}
+			if(arr[i]==arr[j]&& (i<j))
+			{
+				i++;
+			}else{
+				int temp = arr[i];
+				arr[i] = arr[j];
+				arr[j] = temp;
+			}
+		}
+		if(i-1>start)
+		{
+			arr =qsort(arr,start,i-1);
+		}if(j+1<end)
+		{
+			arr=qsort1(arr,j+1,end);
+		}
+		return arr;
+	}
+	public static int[] qsort2(int arr[], int start, int end) {
+		int pivot= arr[start];
+		int i=start;
+		int j= end;
+		while(i<j)
+		{
 			while ((i < j) && arr[i] < pivot) {
 				i++;
 			}
 			while ((i < j) && arr[j] > pivot) {
 				j--;
 			}
-			if ((arr[i] == arr[j]) && (i < j)) {
-				i++;
-			} else {
-				int temp = arr[i];
-				arr[i] = arr[j];
-				arr[j] = temp;
-			}
-			if (i - 1 > start)
-				arr = qsort(arr, start, i - 1);
-			if (j + 1 < end)
-				arr = qsort(arr, j + 1, end);
+		if(arr[i]==arr[j]){
+			i++;
+		}else{
+			int temp = arr[i];
+			arr[i] = arr[j];
+			arr[j] = temp;
+		}
+	}
+		if(i-1>start){
+			qsort(arr,start,i-1);
+		}
+		if(j+1<end)
+		{
+			qsort(arr,j+1,end);
 		}
 		return arr;
 	}
-	public static int[] qsort2(int arr[], int start, int end) {
-		int pivot=arr[start];int i=start;int j=end;
-		while (i<j) {
-			while ((i<j)&&arr[i]<pivot) {
-				i++;
-				
-			}
-			while ((i<j)&&arr[j]>pivot) {
-				j--;
-			}
-			if ((i<j)&&(arr[j]==arr[i])) {
-				i++;
-			} else {
-				int temp = arr[i];
-				arr[i] = arr[j];
-				arr[j] = temp;
-			}
-			if (i-1>start) {
-				arr=qsort(arr, start, i-1);
-			}
-			if (j+1<end) {
-				arr = qsort(arr, j + 1, end);
-			}
-			
-		}
-		return arr;
-	}
-	public static int[] qsort3(int arr[], int start, int end) {
-		int pivot=arr[start];int i=start; int j=end;
-		while (i<j) {
-			while(i<j&&arr[i]<pivot)
-			{i++;}
-			while(i<j&&arr[j]>pivot)
-				{j--;}
-			if ((i<j)&&(arr[j]==arr[i])) {
-				i++;
-				
-			}
-			else {
-				int temp = arr[i];
-				arr[i] = arr[j];
-				arr[j] = temp;
-			}
-			if (i-1>start) {
-				arr=qsort(arr, start, i-1);
-			}
-			if (j+1<end) {
-				arr = qsort(arr, j + 1, end);
-			}
-			
-		}
-		return arr;
-	}
-	public static int[] qsort4(int arr[], int start, int end) {
-		int pivot=arr[start];int i=start,j=end;
-		while (i<j) {
-			while (i<j&&arr[i]<pivot) {
-				i++;
-			}
-			while (i<j&&arr[j]>pivot) {
-				j--;
-				
-			}
-			if ((i<j)&&(arr[j]==arr[i])) {
-				i++;
-			} else {
-				int temp = arr[i];
-				arr[i] = arr[j];
-				arr[j] = temp;
-			}
-			if (i-1>start) {
-				arr=qsort(arr, start, i-1);
-			}
-			if (j+1<end) {
-				arr = qsort(arr, j + 1, end);
-			}
-		}
-		return arr;
-	}
-	public static int[] qsort5(int[] arr, int start, int end) {
-		int pivot=arr[start];int i=start,j=end;
-		while (i<j) {
-			while(i<j&&arr[i]<pivot)
-			{
-				i++;}
-			while(i<j&&arr[j]>pivot)
-			{
-				j++;}
-			if (i<j&&(arr[j]==arr[i])) {
-				i++;
-			} else {
-				int temp = arr[i];
-				arr[i] = arr[j];
-				arr[j] = temp;
-			}
-			if(i-1>start)
-			{
-				qsort(arr,start , i-1);
-			}
-			if(j+1<end)
-			{
-				qsort(arr, j+1, end);
-			}
-		}
-		return arr;
-	}
-	
 }

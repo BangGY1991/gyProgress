@@ -6,7 +6,16 @@ import java.util.Arrays;
 
 /**
  * Created by chengxiao on 2016/12/17.
+ * 大顶堆 每个节点的值都大于或等于其子节点的值，在堆排序算法中用于升序排列；
  * 堆排序demo
+ * 将待排序序列构造成一个大顶堆
+ * 此时，整个序列的最大值就是堆顶的根节点。
+ * 将其与末尾元素进行交换，此时末尾就为最大值。
+ * 然后将剩余n-1个元素重新构造成一个堆，这样会得到n个元素的次小值。如此反复执行，便能得到一个有序序列了。
+ *
+ * 时间复杂度： O(n * logN)
+ * 空间复杂度： O(1)
+ * 稳定性： 不稳定
  */
 public class HeapSort {
     public static void main(String []args){
@@ -22,7 +31,7 @@ public class HeapSort {
         }
         //2.调整堆结构+交换堆顶元素与末尾元素
         for(int j=arr.length-1;j>0;j--){
-            swap(arr,0,j);//将堆顶元素与末尾元素进行交换
+            swap(arr,0,j);//将堆顶元素与末尾元素进行交换 大根堆是升序
             adjustHeap(arr,0,j);//重新对堆进行调整
         }
 
@@ -49,6 +58,21 @@ public class HeapSort {
         }
         arr[i] = temp;//将temp值放到最终的位置
 
+    }
+    public static void adjustHeap1(int []arr,int i,int length){
+        int temp=arr[i];
+        for (int k = i*2+1; k <length ; k=k*2+1) {
+               if(k+1<length&& arr[k]<arr[k+1]){
+                   k++;
+               }
+               if (arr[k]>temp){
+                   arr[i]=arr[k];
+                   i=k;
+            }else{
+                   break;
+            }
+               arr[i]=temp;
+        }
     }
 
     /**

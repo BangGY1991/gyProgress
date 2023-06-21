@@ -1,7 +1,12 @@
 package com.example.leetode.com.sort;
 
 public class BubbleSort {
-	   public void bubbleSort(Integer[] arr, int n) {
+//	时间复杂度：
+//	最坏情况 O(N^2)
+//	最好情况 O(N) (一趟就有序了)
+//	空间复杂度： O(1)
+	//稳定，简单
+	   public void bubbleSort(Integer[] arr, int n) {//n 为数组的长度
 	        if (n <= 1) return;       //如果只有一个元素就不用排序了
 	 
 	        for (int i = 0; i < n; ++i) {
@@ -19,7 +24,26 @@ public class BubbleSort {
 	            if (!flag) break;//没有数据交换，数组已经有序，退出排序
 	        }//
 	   }
-	    
+	public void bubbleSort1(Integer[] arr, int n) {
+		if (n <=1) {
+			return;
+		}
+
+		for (int i = 0; i <n ; i++) {
+			boolean flag = false;
+			for (int j = 0; j < n-i-1; j++) {
+				if (arr[j] > arr[j + 1]) {
+					int temp = arr[j];
+				arr[j] = arr[j + 1];
+				arr[j + 1] = temp;
+				flag = true;
+				}
+			}
+			if (!flag ) {
+				break;
+			}
+		}
+	}
 				
 	    public static void main(String[] args) {
 	        Integer arr[] = {2, 4, 7, 6, 8, 5, 9};
