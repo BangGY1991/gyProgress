@@ -1,23 +1,23 @@
-package com.example.leetode;
+package com.example.leetode.hotest100;
 
 /**
  * @Author guoyu
  * @Date 2021/10/16 11:47
  * @Version 1.0
  */
-public class MaxPathSum124 {
-    public class TreeNode  {
-        int val;
-        TreeNode  left;
-        TreeNode  right;
-        TreeNode () {}
-        TreeNode (int val) { this.val = val; }
-        TreeNode (int val, TreeNode  left, TreeNode  right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
-    }
+public class MaxPathSum0124 {
+     public class TreeNode  {
+      int val;
+         TreeNode  left;
+         TreeNode  right;
+         TreeNode () {}
+         TreeNode (int val) { this.val = val; }
+         TreeNode (int val, TreeNode  left, TreeNode  right) {
+        this.val = val;
+        this.left = left;
+          this.right = right;
+     }
+ }
     int maxSum = Integer.MIN_VALUE;
 
     public  int maxPathSum(TreeNode  head) {
