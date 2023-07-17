@@ -1,6 +1,6 @@
 package com.example.leetode.gupaohomework;
 
-public class SearchRange {
+public class SearchRange34 {
 	 public int[] searchRange(int[] nums, int target) {
 	        int[] targetRange = {-1, -1};
 
