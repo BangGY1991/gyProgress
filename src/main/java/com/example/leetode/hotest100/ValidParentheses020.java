@@ -1,14 +1,11 @@
-package com.example.leetode.gupaohomework;
+package com.example.leetode.hotest100;
 
 import java.util.Deque;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
-import java.util.Stack;
 
-import sun.java2d.StateTrackable;
-
-public class ValidParentheses {
+public class ValidParentheses020 {
 	public boolean isValid(String s) {
         int n = s.length();
         if (n % 2 == 1) {
