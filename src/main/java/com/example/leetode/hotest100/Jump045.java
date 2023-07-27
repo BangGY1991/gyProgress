@@ -1,6 +1,6 @@
-package com.example.leetode.gupaohomework.leetcode40;
+package com.example.leetode.hotest100;
 
-public class Jump45 {
+public class Jump045 {
 	  public int jump(int[] nums) {
 	        int length = nums.length;
 	        int end = 0;
@@ -15,22 +15,24 @@ public class Jump45 {
 	        }
 	        return steps;
 	    }
-	  public int jump1(int[] nums) {
-		  int length = nums.length;
-		  int end = 0;
-		  int maxPosition = 0;
-		  int steps = 0;
-		  for (int i = 0; i < length - 1; i++) {
-			  maxPosition = Math.max(maxPosition, i + nums[i]);
-			  if (i == end) {
-				  end = maxPosition;
+
+	  public int jump1(int[] nums)
+	  {
+		  int length=nums.length;
+		  int end=0;
+		  int maxPosituon=0;
+		  int steps=0;
+		  for(int i=0;i<length-1;i++)
+		  {
+			  maxPosituon=Math.max(maxPosituon, i+nums[i]);
+			  if(i==end)
+			  {
+				  end=maxPosituon;
 				  steps++;
 			  }
 		  }
 		  return steps;
-
 	  }
-
 }
 /*	  以 [2,3,1,1,4] 举例
 
