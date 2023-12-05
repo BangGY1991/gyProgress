@@ -19,7 +19,7 @@ public class Chapter4_1 {
 		return res;
 	}
 
-	private int[][] multiMatrix(int[][] m1, int[][] m2) {
+	private int[][] multiMatrix(int[][] m1, int[][] m2) {//矩阵乘法
 		// TODO Auto-generated method stub
 		int[][] res=new int[m1.length][m2[0].length];
 		for (int i = 0; i < m1.length; i++) {

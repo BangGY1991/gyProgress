@@ -5,18 +5,6 @@ import com.example.leetode.com.nowcoder.offer.chapter2.Link.Node;
 public class Chapter2_3 {
 	 //删除中间节点
     public Node removeMidNode(Node head) {
-//        if (head == null || head.next == null) {
-//            return null;
-//        }
-//        Node node1 = head;
-//        Node node2 = node1.next.next;
-//        //获取中间节点的前驱节点 ，因为让node2早走一步，当node2走完时，node1刚好是中间节点的前驱节点
-//        while (node2.next != null && node2.next.next != null) {
-//            node1 = node1.next;
-//            node2 = node2.next.next;
-//        }
-//        node1.next = node1.next.next;
-//        return head;
     	if (head==null||head.next==null) {
     		return null;
 			

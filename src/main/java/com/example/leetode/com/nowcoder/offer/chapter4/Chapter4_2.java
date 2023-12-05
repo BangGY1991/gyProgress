@@ -34,9 +34,11 @@ public class Chapter4_2 {
 		int[] arr=new int[less];
 		arr[0]=m[0][0];
 		for (int i = 1; i < less; i++) {
-			arr[i]=arr[i-1]+(rowmore? m[0][i]:m[i][0]);
+			arr[i]=arr[i-1]+(rowmore? m[0][i]:m[i][0]);//先求出到对角线的值
 			
 		}
+		//数组  arr 中保存的是dp[i][i]中的值，但如果给定的矩阵行数小于列数（M<N），那么就生成长度为M的arr，然后令arr更新成dp矩阵每一列的值，及将arr 中的值保存为 dp[i][N]
+		// 从左向右滚动过去
 		for (int i = 1; i < more; i++) {
 			arr[0]=arr[0]+(rowmore?m[i][0]:m[0][i]);
 			for (int j = 1; j < arr.length; j++) {

@@ -15,20 +15,6 @@ public class Chapter2_1 {
        chapter.printCommonNode(link1.head,link2.head);
 
    }
-   //打印
-//   public void printCommonNode(Node head1, Node head2){
-//       while (head1!=null && head2!=null){
-//           if(head1.vlaue<head2.vlaue){
-//               head1 = head1.next;
-//           }else if(head1.vlaue>head2.vlaue){
-//               head2 = head2.next;
-//           }else{
-//               System.out.print(head1.vlaue+" ");
-//               head1 = head1.next;
-//               head2= head2.next;
-//           }
-//       }
-//   }
 
 private void printCommonNode(Node head1, Node head2) {
 	// TODO Auto-generated method stub

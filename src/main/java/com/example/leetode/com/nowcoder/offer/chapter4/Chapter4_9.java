@@ -51,9 +51,9 @@ public class Chapter4_9 {
 		if (arr == null || arr.length == 0) {
 			return -1;
 		}
-		int from =1;//?作用
-		int mid=2;//？
-		int to=3;//？
+		int from =1;
+		int mid=2;
+		int to=3;
 		int i=arr.length-1;
 		int res=0;
 		int tmp=0;
@@ -69,7 +69,7 @@ public class Chapter4_9 {
               tmp=to;
               to=mid;
 			}
-			mid=tmp;//?作用
+			mid=tmp;
 			i--;
 		}
 		return res;

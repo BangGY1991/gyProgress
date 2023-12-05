@@ -3,7 +3,7 @@ package com.example.leetode.com.nowcoder.offer.chapter4;
 import sun.java2d.pipe.SpanClipRenderer;
 
 public class Chapter4_13 {
-	public int minCost1(String str1,String str2,int ic,int dc,int rc)
+	public int minCost(String str1,String str2,int ic,int dc,int rc)
 	{
 		if (str1==null||str2==null) {
 			return 0;

@@ -26,14 +26,6 @@ public class ReverseStack {
 			return last;
 		}
 	}
-	public static void reverse1(Stack<Integer> stack){
-		if(stack.isEmpty()){
-			return;
-		}
-		int i = getAndRemoveLastElement(stack);
-		reverse1(stack);
-		stack.push(i);
-	}
 	public static void reverse(Stack<Integer> stack)
 	{
 		if(stack.isEmpty())
